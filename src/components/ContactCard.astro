@@ -1,0 +1,77 @@
+---
+interface Props {
+  title?: string
+  description?: string
+  contactInfo?: Array<{
+    icon: string
+    label: string
+    value: string
+    className?: string
+  }>
+}
+
+const {
+  title = "Contact With Us",
+  description = "If you have any questions regarding our Services or need help, please fill out the form here. We do our best to respond within 1 business day.",
+  contactInfo = [],
+} = Astro.props
+
+const icons: Record<string, string> = {
+  mail: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>`,
+  phone: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>`,
+  "map-pin": `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>`,
+}
+---
+
+<div class="relative grid h-full w-full border-2 border-white/10 bg-white/5 backdrop-blur-sm shadow-lg md:grid-cols-2 lg:grid-cols-3 rounded-lg">
+  <div class="absolute inset-0 pointer-events-none">
+    <svg class="pointer-events-none absolute inset-0 h-full w-full fill-white/20" aria-hidden="true">
+      <defs>
+        <pattern id="dots-contact" width="5" height="5" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="0.5" r="0.5"></circle>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" stroke-width="0" fill="url(#dots-contact)"></rect>
+    </svg>
+  </div>
+  
+  <div class="absolute -top-3 -left-3 h-6 w-6 text-white [text-shadow:_0_2px_8px_rgb(0_0_0_/_60%)]">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+  </div>
+  <div class="absolute -top-3 -right-3 h-6 w-6 text-white [text-shadow:_0_2px_8px_rgb(0_0_0_/_60%)]">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+  </div>
+  <div class="absolute -bottom-3 -left-3 h-6 w-6 text-white [text-shadow:_0_2px_8px_rgb(0_0_0_/_60%)]">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+  </div>
+  <div class="absolute -right-3 -bottom-3 h-6 w-6 text-white [text-shadow:_0_2px_8px_rgb(0_0_0_/_60%)]">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+  </div>
+  
+  <div class="flex flex-col justify-between lg:col-span-2">
+    <div class="relative h-full space-y-4 px-4 py-8 md:p-8">
+      <h2 class="text-3xl font-bold md:text-4xl lg:text-5xl text-white [text-shadow:_0_4px_20px_rgb(0_0_0_/_60%)] font-open-sans-custom">
+        {title}
+      </h2>
+      <p class="max-w-xl text-sm md:text-base lg:text-lg text-gray-300 [text-shadow:_0_2px_10px_rgb(0_0_0_/_50%)] font-open-sans-custom">
+        {description}
+      </p>
+      <div class="grid gap-4 md:grid md:grid-cols-2 lg:grid-cols-3">
+        {contactInfo.map((info) => (
+          <div class={`flex items-center gap-3 py-3 ${info.className || ""}`}>
+            <div class="rounded-lg bg-white/10 p-3" set:html={icons[info.icon] || icons.mail} />
+            <div>
+              <p class="font-medium text-white [text-shadow:_0_2px_8px_rgb(0_0_0_/_40%)] font-open-sans-custom">
+                {info.label}
+              </p>
+              <p class="text-xs text-gray-300 [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)] font-open-sans-custom">{info.value}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+  <div class="flex h-full w-full items-center border-t border-white/10 bg-white/10 p-5 md:col-span-1 md:border-t-0 md:border-l">
+    <slot />
+  </div>
+</div>

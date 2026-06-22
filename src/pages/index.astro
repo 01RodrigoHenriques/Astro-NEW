@@ -1,0 +1,392 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Feature from '../components/Feature.astro';
+import BentoPricing from '../components/BentoPricing.astro';
+import AboutQuote from '../components/AboutQuote.astro';
+import ContactCard from '../components/ContactCard.astro';
+---
+
+<BaseLayout title="BolinaTEC" description="BolinaTEC — Ideate. Prompt. Build. A platform that turns ideas into reality.">
+  <main class="relative h-screen overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 -z-10 bg-[#00042e]">
+      <canvas id="liquid-canvas" class="liquid-canvas" aria-hidden="true"></canvas>
+    </div>
+    
+    <!-- Dark overlay -->
+    <div class="fixed inset-0 z-[5] bg-black/30"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed left-0 right-0 top-0 z-50 px-4 py-4">
+      <div class="mx-auto max-w-7xl rounded-2xl border-2 border-white/10 bg-white/5 px-6 py-4 backdrop-blur-sm">
+        <div class="flex items-center justify-between">
+          <button onclick="scrollToSection('home')" class="cursor-pointer text-white font-bold text-xl tracking-tight font-open-sans-custom [text-shadow:_0_2px_8px_rgb(0_0_0_/_40%)]">
+            BolinaTEC
+          </button>
+          
+          <div class="hidden items-center gap-8 md:flex">
+            <button onclick="scrollToSection('features')" class="text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)]">Funcionalidades</button>
+            <button onclick="scrollToSection('pricing')" class="text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)]">Preços</button>
+            <button onclick="scrollToSection('about')" class="text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)]">Sobre</button>
+            <button onclick="scrollToSection('contact')" class="text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)]">Contacto</button>
+          </div>
+          
+          <div class="flex items-center gap-3">
+            <button onclick="scrollToSection('contact')" class="rounded-md bg-white px-4 py-2 text-sm font-medium text-black hover:bg-gray-100 font-open-sans-custom">Começar</button>
+            <button id="mobile-menu-btn" class="cursor-pointer text-white md:hidden" aria-label="Open menu" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6">
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden mt-4 flex-col gap-4 border-t border-white/10 pt-4 md:hidden">
+          <button onclick="scrollToSection('features')" class="text-left text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white">Funcionalidades</button>
+          <button onclick="scrollToSection('pricing')" class="text-left text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white">Preços</button>
+          <button onclick="scrollToSection('about')" class="text-left text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white">Sobre</button>
+          <button onclick="scrollToSection('contact')" class="text-left text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white">Contacto</button>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Horizontal Scroll Container -->
+    <div id="scroll-container" class="relative z-10 flex h-screen w-full overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory" style="scrollbar-width: none; -ms-overflow-style: none;" tabindex="0" role="region" aria-label="Main content sections">
+      
+      <section id="home" class="flex min-w-[100%] snap-start items-center justify-center px-4 py-20">
+        <div class="mx-auto max-w-4xl">
+          <div class="text-center px-0 leading-5">
+            <h1 class="mb-8 text-balance text-5xl tracking-tight text-white [text-shadow:_0_4px_20px_rgb(0_0_0_/_60%)] md:text-6xl lg:text-8xl">
+              <span class="font-open-sans-custom not-italic">Ideate.</span>{" "}
+              <span class="font-serif italic">Prompt.</span>{" "}
+              <span class="font-open-sans-custom not-italic">Build.</span>
+            </h1>
+            <p class="mb-8 mx-auto max-w-2xl text-pretty leading-relaxed text-gray-300 [text-shadow:_0_2px_10px_rgb(0_0_0_/_50%)] font-thin font-open-sans-custom tracking-wide leading-7 text-xl">
+              sejas designer, programador ou apenas curioso, pega numa ideia,{" "}
+              <span class="font-serif italic">faz</span>-la prompt, e vê-a ganhar vida
+            </p>
+            <div class="flex justify-center">
+              <button class="relative rounded-lg px-8 py-4 uppercase tracking-wide overflow-hidden font-open-sans-custom text-xs scale-90 bg-white/20 backdrop-blur-sm border-2 border-white/30 shadow-[0_0_30px_rgba(255,255,255,0.4),inset_0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_50px_rgba(255,255,255,0.6),inset_0_0_30px_rgba(255,255,255,0.2)] transition-all duration-300 px-8 py-3 text-base">
+                <span class="relative z-10 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">começar a construir</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="features" class="flex min-w-[100%] snap-start items-center justify-center px-4 py-20">
+        <div class="mx-auto max-w-7xl w-full"><Feature /></div>
+      </section>
+      
+      <section id="pricing" data-section-scrollable class="scroll-fade-bottom relative min-w-[100%] snap-start overflow-y-auto px-4 pt-24 pb-20 hide-scrollbar">
+        <div aria-hidden="true" class="absolute inset-0 z-0 size-full pointer-events-none bg-[radial-gradient(rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:12px_12px] opacity-30"></div>
+        <div class="relative z-10 mx-auto w-full max-w-5xl">
+          <div class="mx-auto mb-10 max-w-2xl text-center">
+            <h2 class="text-4xl font-extrabold tracking-tight lg:text-6xl text-white [text-shadow:_0_4px_20px_rgb(0_0_0_/_60%)] font-open-sans-custom">Planos e Preços</h2>
+            <p class="text-gray-300 mt-4 text-sm md:text-base font-open-sans-custom [text-shadow:_0_2px_10px_rgb(0_0_0_/_50%)]">Escolhe o plano ideal para as tuas necessidades.</p>
+          </div>
+          <BentoPricing />
+        </div>
+      </section>
+      
+      <section id="about" data-section-scrollable class="scroll-fade-bottom relative min-w-[100%] snap-start overflow-y-auto px-4 pt-24 pb-20 hide-scrollbar">
+        <div aria-hidden="true" class="absolute inset-0 z-0 size-full pointer-events-none bg-[radial-gradient(rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:12px_12px] opacity-30"></div>
+        <div class="relative z-10 mx-auto w-full max-w-7xl">
+          <div class="mx-auto mb-10 max-w-2xl text-center">
+            <h2 class="text-4xl font-extrabold tracking-tight lg:text-6xl text-white [text-shadow:_0_4px_20px_rgb(0_0_0_/_60%)] font-open-sans-custom">Sobre Nós</h2>
+            <p class="text-gray-300 mt-4 text-sm md:text-base font-open-sans-custom [text-shadow:_0_2px_10px_rgb(0_0_0_/_50%)]">Conhece mais sobre a nossa missão e valores.</p>
+          </div>
+          <AboutQuote />
+        </div>
+      </section>
+      
+      <section id="contact" data-section-scrollable class="relative min-w-[100%] snap-start overflow-y-auto px-4 pt-24 pb-20">
+        <div aria-hidden="true" class="absolute inset-0 z-0 size-full pointer-events-none bg-[radial-gradient(rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:12px_12px] opacity-30"></div>
+        <div class="relative z-10 mx-auto w-full max-w-5xl mt-[5vh]">
+          <ContactCard title="Fala connosco" description="Se tiveres alguma questão, preenche o formulário abaixo. Respondemos num máximo de 1 dia útil." contactInfo={[{icon:"mail",label:"Email",value:"contact@bolinatec.pt"},{icon:"phone",label:"Telefone",value:"+351 912 345 678"},{icon:"map-pin",label:"Morada",value:"Lisboa, Portugal",className:"col-span-2"}]}>
+            <form id="contact-form" class="w-full space-y-4" novalidate>
+              <div class="flex flex-col gap-2">
+                <label for="contact-name" class="text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)] font-open-sans-custom text-sm font-medium">Nome</label>
+                <input id="contact-name" type="text" placeholder="O teu nome" class="h-9 w-full min-w-0 rounded-md border bg-white/10 border-white/20 px-3 py-1 text-base text-white placeholder:text-gray-400 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] outline-none transition-[color,box-shadow] md:text-sm" />
+                <p id="error-name" role="alert" class="text-xs text-red-400 hidden"></p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <label for="contact-email" class="text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)] font-open-sans-custom text-sm font-medium">Email</label>
+                <input id="contact-email" type="email" placeholder="tu@exemplo.pt" class="h-9 w-full min-w-0 rounded-md border bg-white/10 border-white/20 px-3 py-1 text-base text-white placeholder:text-gray-400 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] outline-none transition-[color,box-shadow] md:text-sm" />
+                <p id="error-email" role="alert" class="text-xs text-red-400 hidden"></p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <label for="contact-phone" class="text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)] font-open-sans-custom text-sm font-medium">Telefone</label>
+                <input id="contact-phone" type="tel" placeholder="+351 912 345 678" class="h-9 w-full min-w-0 rounded-md border bg-white/10 border-white/20 px-3 py-1 text-base text-white placeholder:text-gray-400 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] outline-none transition-[color,box-shadow] md:text-sm" />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label for="contact-message" class="text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)] font-open-sans-custom text-sm font-medium">Mensagem</label>
+                <textarea id="contact-message" placeholder="Como te podemos ajudar?" class="flex min-h-16 w-full rounded-md border bg-white/10 border-white/20 px-3 py-2 text-base text-white placeholder:text-gray-400 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] outline-none transition-[color,box-shadow] md:text-sm"></textarea>
+                <p id="error-message" role="alert" class="text-xs text-red-400 hidden"></p>
+              </div>
+              <div id="form-success" role="status" class="hidden items-center gap-2 rounded-md border border-green-400/30 bg-green-400/10 px-3 py-2 text-sm text-green-300">Mensagem enviada com sucesso!</div>
+              <div id="form-error" role="alert" class="hidden items-center gap-2 rounded-md border border-red-400/30 bg-red-400/10 px-3 py-2 text-sm text-red-300">Algo correu mal. Tenta novamente.</div>
+              <button type="submit" class="w-full inline-flex items-center justify-center rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 bg-white text-black hover:bg-gray-100 font-open-sans-custom h-9 px-4 py-2">Enviar</button>
+            </form>
+          </ContactCard>
+        </div>
+        
+        <footer class="relative z-10 mt-16 pb-8">
+          <div class="mx-auto max-w-5xl border-t border-white/10 pt-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+              <div>
+                <h3 class="text-white font-bold text-lg font-open-sans-custom mb-3">BolinaTEC</h3>
+                <p class="text-sm text-gray-400 font-open-sans-custom leading-relaxed">Ideia. Prompt. Constrói. A plataforma que transforma as tuas ideias em realidade.</p>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold text-sm font-open-sans-custom mb-3 uppercase tracking-wider">Navegação</h4>
+                <ul class="space-y-2">
+                  <li><button onclick="scrollToSection('features')" class="text-sm text-gray-400 hover:text-white transition-colors font-open-sans-custom">Funcionalidades</button></li>
+                  <li><button onclick="scrollToSection('pricing')" class="text-sm text-gray-400 hover:text-white transition-colors font-open-sans-custom">Preços</button></li>
+                  <li><button onclick="scrollToSection('about')" class="text-sm text-gray-400 hover:text-white transition-colors font-open-sans-custom">Sobre</button></li>
+                  <li><button onclick="scrollToSection('contact')" class="text-sm text-gray-400 hover:text-white transition-colors font-open-sans-custom">Contacto</button></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold text-sm font-open-sans-custom mb-3 uppercase tracking-wider">Legal</h4>
+                <ul class="space-y-2">
+                  <li><a href="/politica-privacidade" class="text-sm text-gray-400 hover:text-white transition-colors font-open-sans-custom">Política de Privacidade</a></li>
+                  <li><a href="/termos-uso" class="text-sm text-gray-400 hover:text-white transition-colors font-open-sans-custom">Termos de Uso</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p class="text-xs text-gray-500 font-open-sans-custom">&copy; 2026 BolinaTEC. Todos os direitos reservados.</p>
+              <div class="flex items-center gap-4">
+                <a href="https://twitter.com/bolinatec" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-white transition-colors" aria-label="Twitter">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://linkedin.com/company/bolinatec" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-white transition-colors" aria-label="LinkedIn">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.607H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.568v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="https://github.com/bolinatec" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-white transition-colors" aria-label="GitHub">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  // ===== HORIZONTAL SCROLL =====
+  const scrollContainer = document.getElementById('scroll-container') as HTMLElement;
+  let currentSection = 0;
+  let isScrolling = false;
+  
+  function scrollToSection(id: string) {
+    const el = document.getElementById(id);
+    if (el && scrollContainer) {
+      const index = Array.from(scrollContainer.children).indexOf(el);
+      if (index !== -1) {
+        scrollContainer.scrollTo({ left: index * scrollContainer.offsetWidth, behavior: 'smooth' });
+        currentSection = index;
+      }
+    }
+  }
+  
+  (window as any).scrollToSection = scrollToSection;
+  
+  if (scrollContainer) {
+    scrollContainer.addEventListener('wheel', (e: WheelEvent) => {
+      const delta = e.deltaY;
+      if (Math.abs(delta) < 10) return;
+      
+      const sections = Array.from(scrollContainer.children);
+      const scrollableIndices = sections
+        .map((s, i) => (s as HTMLElement).hasAttribute('data-section-scrollable') ? i : -1)
+        .filter(i => i !== -1);
+      
+      if (scrollableIndices.includes(currentSection)) {
+        const sectionEl = sections[currentSection] as HTMLElement;
+        const isAtTop = sectionEl.scrollTop === 0;
+        const isAtBottom = sectionEl.scrollTop + sectionEl.clientHeight >= sectionEl.scrollHeight - 1;
+        
+        if (delta > 0 && !isAtBottom) return;
+        if (delta < 0 && !isAtTop) return;
+        
+        if (delta < 0 && isAtTop) { e.preventDefault(); scrollToSectionByIndex(currentSection - 1); return; }
+        if (delta > 0 && isAtBottom) { e.preventDefault(); if (currentSection < sections.length - 1) scrollToSectionByIndex(currentSection + 1); return; }
+      }
+      
+      e.preventDefault();
+      const target = delta > 0 ? Math.min(currentSection + 1, sections.length - 1) : Math.max(currentSection - 1, 0);
+      scrollToSectionByIndex(target);
+    }, { passive: false });
+    
+    let touchStartX = 0, touchStartY = 0;
+    scrollContainer.addEventListener('touchstart', (e: TouchEvent) => { touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY; }, { passive: true });
+    scrollContainer.addEventListener('touchend', (e: TouchEvent) => {
+      if (isScrolling) return;
+      const deltaX = e.changedTouches[0].clientX - touchStartX;
+      const deltaY = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(deltaX) < 50 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+      isScrolling = true;
+      const sections = Array.from(scrollContainer.children);
+      const target = deltaX < 0 ? Math.min(currentSection + 1, sections.length - 1) : Math.max(currentSection - 1, 0);
+      scrollToSectionByIndex(target);
+      setTimeout(() => { isScrolling = false; }, 600);
+    }, { passive: true });
+    
+    scrollContainer.addEventListener('keydown', (e: KeyboardEvent) => {
+      const sections = Array.from(scrollContainer.children);
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); scrollToSectionByIndex(Math.min(currentSection + 1, sections.length - 1)); }
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); scrollToSectionByIndex(Math.max(currentSection - 1, 0)); }
+      else if (e.key === 'Home') { e.preventDefault(); scrollToSectionByIndex(0); }
+      else if (e.key === 'End') { e.preventDefault(); scrollToSectionByIndex(sections.length - 1); }
+    });
+    
+    scrollContainer.addEventListener('scroll', () => {
+      const width = scrollContainer.offsetWidth;
+      if (width > 0) currentSection = Math.round(scrollContainer.scrollLeft / width);
+    });
+    
+    let resizeTimeout: ReturnType<typeof setTimeout>;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => { scrollContainer.scrollTo({ left: currentSection * scrollContainer.offsetWidth, behavior: 'auto' }); }, 150);
+    });
+    
+    function scrollToSectionByIndex(index: number) {
+      const sections = Array.from(scrollContainer.children);
+      const clamped = Math.max(0, Math.min(index, sections.length - 1));
+      scrollContainer.scrollTo({ left: clamped * scrollContainer.offsetWidth, behavior: 'smooth' });
+      currentSection = clamped;
+    }
+  }
+
+  // ===== MOBILE MENU =====
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
+    mobileMenu.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenuBtn.setAttribute('aria-expanded', 'false'); });
+    });
+  }
+
+  // ===== CONTACT FORM =====
+  const contactForm = document.getElementById('contact-form') as HTMLFormElement;
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e: Event) => {
+      e.preventDefault();
+      const name = (document.getElementById('contact-name') as HTMLInputElement).value.trim();
+      const email = (document.getElementById('contact-email') as HTMLInputElement).value.trim();
+      const message = (document.getElementById('contact-message') as HTMLTextAreaElement).value.trim();
+      
+      ['name', 'email', 'message'].forEach(f => { document.getElementById(`error-${f}`)?.classList.add('hidden'); });
+      
+      let valid = true;
+      if (!name) { document.getElementById('error-name')!.textContent = 'Nome é obrigatório'; document.getElementById('error-name')!.classList.remove('hidden'); valid = false; }
+      if (!email) { document.getElementById('error-email')!.textContent = 'Email é obrigatório'; document.getElementById('error-email')!.classList.remove('hidden'); valid = false; }
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById('error-email')!.textContent = 'Email inválido'; document.getElementById('error-email')!.classList.remove('hidden'); valid = false; }
+      if (!message) { document.getElementById('error-message')!.textContent = 'Mensagem é obrigatória'; document.getElementById('error-message')!.classList.remove('hidden'); valid = false; }
+      if (!valid) return;
+      
+      const submitBtn = contactForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+      submitBtn.disabled = true; submitBtn.textContent = 'A enviar...';
+      try { await new Promise(r => setTimeout(r, 1500)); document.getElementById('form-success')!.classList.remove('hidden'); contactForm.reset(); }
+      catch { document.getElementById('form-error')!.classList.remove('hidden'); }
+      submitBtn.disabled = false; submitBtn.textContent = 'Enviar';
+    });
+  }
+</script>
+
+<script is:inline>
+(function(){
+  var c = document.getElementById('liquid-canvas');
+  if(!c) return;
+  var gl = c.getContext('webgl');
+  if(!gl) return;
+
+  var vs = gl.createShader(gl.VERTEX_SHADER);
+  gl.shaderSource(vs, 'attribute vec2 p;void main(){gl_Position=vec4(p,0,1);}');
+  gl.compileShader(vs);
+
+  var fs = gl.createShader(gl.FRAGMENT_SHADER);
+  gl.shaderSource(fs, 'precision mediump float;uniform float t;uniform vec2 r;'+function(){/*
+vec3 mod289(vec3 x){return x-floor(x/289.)*289.;}
+vec2 mod289(vec2 x){return x-floor(x/289.)*289.;}
+vec3 perm(vec3 x){return mod289(((x*34.)+1.)*x);}
+float snoise(vec2 v){
+  const vec4 C=vec4(.21132,.36603,-.57735,.02439);
+  vec2 i=floor(v+dot(v,C.yy));
+  vec2 x0=v-i+dot(i,C.xx);
+  vec2 i1=(x0.x>x0.y)?vec2(1,0):vec2(0,1);
+  vec4 x12=x0.xyxy+C.xxzz;x12.xy-=i1;i=mod289(i);
+  vec3 p=perm(perm(i.y+vec3(0,i1.y,1))+i.x+vec3(0,i1.x,1));
+  vec3 m=max(.5-vec3(dot(x0,x0),dot(x12.xy,x12.xy),dot(x12.zw,x12.zw)),0.);
+  m=m*m;m=m*m;
+  vec3 x=2.*fract(p*C.www)-1.;
+  vec3 h=abs(x)-.5;vec3 ox=floor(x+.5);vec3 a0=x-ox;
+  m*=1.79284-.85373*(a0*a0+h*h);
+  vec3 g;g.x=a0.x*x0.x+h.x*x0.y;g.yz=a0.yz*x12.xz+h.yz*x12.yw;
+  return 130.*dot(m,g);
+}
+void main(){
+  vec2 uv=gl_FragCoord.xy/r;
+  float T=t*.4;
+  float n1=snoise(uv*3.+vec2(T*.8,T*.4));
+  float n2=snoise(uv*5.+vec2(-T*.6,T*.9));
+  float n3=snoise(uv*2.+vec2(T*.3,-T*.5));
+  float v=n1*.5+n2*.3+n3*.2;
+  vec3 c0=vec3(0,.016,.18);
+  vec3 c1=vec3(.357,.302,.78);
+  vec3 c2=vec3(.55,.45,.95);
+  float s=(v+1.)*.5;
+  vec3 c=c0;
+  c=mix(c,c1,smoothstep(.2,.6,s));
+  c=mix(c,c2,smoothstep(.5,.9,s)*.6);
+  float h=snoise(uv*10.+vec2(T*1.5,T));
+  c+=vec3(.15,.1,.3)*pow(max(h,0.),4.)*.8;
+  float d=1.-length((uv-.5)*1.3);
+  c*=smoothstep(0.,.6,d);
+  gl_FragColor=vec4(c,1);
+}
+*/}.toString().slice(14,-3));
+  gl.compileShader(fs);
+
+  var pg=gl.createProgram();
+  gl.attachShader(pg,vs);gl.attachShader(pg,fs);
+  gl.linkProgram(pg);gl.useProgram(pg);
+
+  var b=gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER,b);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+  var pos=gl.getAttribLocation(pg,'p');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos,2,gl.FLOAT,false,0,0);
+
+  var tL=gl.getUniformLocation(pg,'t');
+  var rL=gl.getUniformLocation(pg,'r');
+
+  function resize(){
+    c.width=window.innerWidth;c.height=window.innerHeight;
+    gl.viewport(0,0,c.width,c.height);
+  }
+  var t0=performance.now();
+  function render(){
+    gl.uniform1f(tL,(performance.now()-t0)/1000);
+    gl.uniform2f(rL,c.width,c.height);
+    gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+    requestAnimationFrame(render);
+  }
+  resize();render();
+  window.addEventListener('resize',resize);
+})();
+</script>
