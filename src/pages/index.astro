@@ -4,7 +4,7 @@ import ProblemSection from '../components/ProblemSection.astro';
 import SolutionSection from '../components/SolutionSection.astro';
 import SupplyChainSection from '../components/SupplyChainSection.astro';
 import MarketParallelSection from '../components/MarketParallelSection.astro';
-import QuoteSection from '../components/QuoteSection.astro';
+import HowItWorks from '../components/HowItWorks.astro';
 import LeadMagnetForm from '../components/LeadMagnetForm.astro';
 import WebGLBackground from '../components/WebGLBackground.astro';
 ---
@@ -31,6 +31,8 @@ import WebGLBackground from '../components/WebGLBackground.astro';
             <button onclick="scrollToSection('problem')" class="text-sm font-open-sans-custom text-gray-400 transition-colors hover:text-white">O Problema</button>
             <button onclick="scrollToSection('solution')" class="text-sm font-open-sans-custom text-gray-400 transition-colors hover:text-white">Solução</button>
             <button onclick="scrollToSection('supply-chain')" class="text-sm font-open-sans-custom text-gray-400 transition-colors hover:text-white">Supply Chain</button>
+            <button onclick="scrollToSection('market')" class="text-sm font-open-sans-custom text-gray-400 transition-colors hover:text-white">Vantagem</button>
+            <button onclick="scrollToSection('how-it-works')" class="text-sm font-open-sans-custom text-gray-400 transition-colors hover:text-white">Como Funciona</button>
             <button onclick="scrollToSection('lead-magnet')" class="text-sm font-open-sans-custom text-gray-400 transition-colors hover:text-white">Guia NIS2</button>
           </div>
           
@@ -50,6 +52,8 @@ import WebGLBackground from '../components/WebGLBackground.astro';
           <button onclick="scrollToSection('problem')" class="text-left text-sm font-open-sans-custom text-gray-400 transition-colors hover:text-white">O Problema</button>
           <button onclick="scrollToSection('solution')" class="text-left text-sm font-open-sans-custom text-gray-400 transition-colors hover:text-white">Solução</button>
           <button onclick="scrollToSection('supply-chain')" class="text-left text-sm font-open-sans-custom text-gray-400 transition-colors hover:text-white">Supply Chain</button>
+          <button onclick="scrollToSection('market')" class="text-left text-sm font-open-sans-custom text-gray-400 transition-colors hover:text-white">Vantagem</button>
+          <button onclick="scrollToSection('how-it-works')" class="text-left text-sm font-open-sans-custom text-gray-400 transition-colors hover:text-white">Como Funciona</button>
           <button onclick="scrollToSection('lead-magnet')" class="text-left text-sm font-open-sans-custom text-gray-400 transition-colors hover:text-white">Guia NIS2</button>
         </div>
       </div>
@@ -89,7 +93,7 @@ import WebGLBackground from '../components/WebGLBackground.astro';
       </section>
       
       <!-- SECÇÃO 3: A SOLUÇÃO -->
-      <section id="solution" aria-label="Solução" data-section-scrollable class="scroll-fade-bottom relative min-w-[100%] snap-start overflow-y-auto px-4 py-16 hide-scrollbar">
+      <section id="solution" aria-label="Solução" data-section-scrollable class="scroll-fade-bottom relative min-w-[100%] snap-start overflow-y-auto px-4 py-16 hide-scrollbar flex items-center justify-center">
         <div class="relative z-10 mx-auto w-full">
           <SolutionSection />
         </div>
@@ -100,16 +104,16 @@ import WebGLBackground from '../components/WebGLBackground.astro';
         <div class="mx-auto w-full"><SupplyChainSection /></div>
       </section>
       
-      <!-- SECÇÃO 5: PARALELO DE MERCADO -->
-      <section id="market" aria-label="Vantagem Competitiva" data-section-scrollable class="scroll-fade-bottom relative min-w-[100%] snap-start overflow-y-auto px-4 py-16 hide-scrollbar">
+<!-- SECÇÃO 5: PARALELO DE MERCADO -->
+      <section id="market" aria-label="Vantagem" data-section-scrollable class="scroll-fade-bottom relative min-w-[100%] snap-start overflow-y-auto px-4 py-16 hide-scrollbar flex items-center justify-center">
         <div class="relative z-10 mx-auto w-full">
           <MarketParallelSection />
         </div>
       </section>
       
-      <!-- SECÇÃO 6: SÍNTESE -->
-      <section id="quote" aria-label="Síntese" class="flex min-w-[100%] snap-start items-center justify-center px-4 py-16">
-        <div class="mx-auto w-full"><QuoteSection /></div>
+      <!-- SECÇÃO 6: COMO FUNCIONA -->
+      <section id="how-it-works" aria-label="Como Funciona" class="flex min-w-[100%] snap-start items-center justify-center px-4 py-16">
+        <div class="mx-auto w-full"><HowItWorks /></div>
       </section>
       
       <!-- SECÇÃO 7: LEAD MAGNET -->
@@ -137,7 +141,8 @@ import WebGLBackground from '../components/WebGLBackground.astro';
                 <ul class="space-y-2">
                   <li><button onclick="scrollToSection('problem')" class="text-xs text-gray-500 hover:text-white transition-colors font-open-sans-custom">O Problema</button></li>
                   <li><button onclick="scrollToSection('solution')" class="text-xs text-gray-500 hover:text-white transition-colors font-open-sans-custom">Solução</button></li>
-                  <li><button onclick="scrollToSection('supply-chain')" class="text-xs text-gray-500 hover:text-white transition-colors font-open-sans-custom">Supply Chain</button></li>
+                  <li><button onclick="scrollToSection('how-it-works')" class="text-xs text-gray-500 hover:text-white transition-colors font-open-sans-custom">Como Funciona</button></li>
+                  <li><button onclick="scrollToSection('market')" class="text-xs text-gray-500 hover:text-white transition-colors font-open-sans-custom">Vantagem</button></li>
                   <li><button onclick="scrollToSection('lead-magnet')" class="text-xs text-gray-500 hover:text-white transition-colors font-open-sans-custom">Guia NIS2</button></li>
                 </ul>
               </div>
