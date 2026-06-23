@@ -7,6 +7,8 @@ export default defineConfig({
   integrations: [
     tailwind(),
   ],
+  site: 'https://rodrigohenriques00.github.io',
+  base: '/Astro-NEW',
   security: {
     checkOrigin: true,
   },
