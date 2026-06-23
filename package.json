@@ -1,5 +1,5 @@
 {
-  "name": "bolinatec-landing",
+  "name": "nexus-twin-landing",
   "type": "module",
   "version": "0.1.0",
   "private": true,
@@ -12,7 +12,6 @@
   "dependencies": {
     "@astrojs/tailwind": "^6.0.2",
     "astro": "^5.0.0",
-    "lucide": "^1.21.0",
     "tailwindcss": "^3.4.0"
   }
 }

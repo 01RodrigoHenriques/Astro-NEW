@@ -1,0 +1,79 @@
+---
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = "NIS2 para PME Industriais: como transformar conformidade em vantagem operacional.",
+  description = "O nosso guia prático deixa de lado o \"juridiquês\" e foca-se naquilo que a gestão precisa de saber para proteger a operação, manter os contratos de fornecimento e justificar o investimento.",
+} = Astro.props
+---
+
+<div class="relative grid h-full w-full border border-white/10 bg-black/20 backdrop-blur-md md:grid-cols-2 rounded-xl overflow-hidden">
+  <div class="relative z-10 flex flex-col justify-between p-6 md:p-8">
+    <div class="space-y-4">
+      <span class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-gray-400">
+        GUIA NIS2
+      </span>
+      <h2 class="text-xl md:text-2xl lg:text-3xl text-white font-open-sans-custom">
+        {title}
+      </h2>
+      <p class="max-w-xl text-sm md:text-base text-gray-400 font-open-sans-custom">
+        {description}
+      </p>
+      <div class="space-y-3 pt-2">
+        <div class="flex items-start gap-3">
+          <svg class="w-4 h-4 mt-0.5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+          <div>
+            <p class="text-white font-open-sans-custom text-sm">A Checklist de 10 pontos</p>
+            <p class="text-gray-500 text-xs font-open-sans-custom">O teste rápido para avaliar o grau de maturidade IT/OT da sua fábrica hoje.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg class="w-4 h-4 mt-0.5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+          <div>
+            <p class="text-white font-open-sans-custom text-sm">Os 5 erros clássicos</p>
+            <p class="text-gray-500 text-xs font-open-sans-custom">O que falha nas PME que compram tecnologia avulsa e julgam estar protegidas.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg class="w-4 h-4 mt-0.5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+          <div>
+            <p class="text-white font-open-sans-custom text-sm">Hierarquia de Execução</p>
+            <p class="text-gray-500 text-xs font-open-sans-custom">Por onde começar os primeiros passos, organizados por estrita prioridade de negócio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="relative z-10 flex items-center border-t md:border-t-0 md:border-l border-white/10 bg-white/5 p-6">
+    <form id="lead-form" class="w-full space-y-4" novalidate>
+      <div class="flex flex-col gap-2">
+        <label for="lead-name" class="text-gray-400 font-open-sans-custom text-sm">Nome</label>
+        <input id="lead-name" type="text" placeholder="O teu nome" class="h-10 w-full min-w-0 rounded-lg border bg-white/5 border-white/10 px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-white/30 focus:outline-none transition-colors" />
+        <p id="error-name" role="alert" class="text-xs text-red-400 hidden"></p>
+      </div>
+      <div class="flex flex-col gap-2">
+        <label for="lead-email" class="text-gray-400 font-open-sans-custom text-sm">Email profissional</label>
+        <input id="lead-email" type="email" placeholder="tu@empresa.pt" class="h-10 w-full min-w-0 rounded-lg border bg-white/5 border-white/10 px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-white/30 focus:outline-none transition-colors" />
+        <p id="error-email" role="alert" class="text-xs text-red-400 hidden"></p>
+      </div>
+      <div class="flex flex-col gap-2">
+        <label for="lead-company" class="text-gray-400 font-open-sans-custom text-sm">Empresa</label>
+        <input id="lead-company" type="text" placeholder="Nome da empresa" class="h-10 w-full min-w-0 rounded-lg border bg-white/5 border-white/10 px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-white/30 focus:outline-none transition-colors" />
+        <p id="error-company" role="alert" class="text-xs text-red-400 hidden"></p>
+      </div>
+      <div class="flex flex-col gap-2">
+        <label for="lead-sector" class="text-gray-400 font-open-sans-custom text-sm">Setor de Atividade</label>
+        <input id="lead-sector" type="text" placeholder="Ex: Automóvel, Alimentar, Farmacêutico..." class="h-10 w-full min-w-0 rounded-lg border bg-white/5 border-white/10 px-3 py-2 text-sm text-white placeholder:text-gray-500 focus:border-white/30 focus:outline-none transition-colors" />
+      </div>
+      <div id="form-success" role="status" class="hidden items-center gap-2 rounded-lg border border-green-500/20 bg-green-500/10 px-3 py-2 text-sm text-green-400">Guia enviado com sucesso! Verifique o seu email.</div>
+      <div id="form-error" role="alert" class="hidden items-center gap-2 rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2 text-sm text-red-400">Algo correu mal. Tenta novamente.</div>
+      <button type="submit" class="w-full inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50 bg-white text-black hover:bg-gray-100 h-10 px-4">Quero o Guia Prático (PDF Gratuito)</button>
+      <p class="text-xs text-gray-500 font-open-sans-custom leading-relaxed">
+        Garantia de integridade: Usamos os seus dados apenas para entregar o guia. Sem spam. Cancela com um clique.
+      </p>
+    </form>
+  </div>
+</div>
