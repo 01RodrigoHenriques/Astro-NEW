@@ -82,6 +82,7 @@ void main(){
     requestAnimationFrame(render);
   }
   resize();render();
-  window.addEventListener('resize',resize);
+  var rt;
+  window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(resize,150);});
 })();
 </script>

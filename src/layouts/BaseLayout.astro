@@ -8,6 +8,8 @@ const {
   title = "Nexus Twin Industrial Suite",
   description = "Nexus Twin — Mais produção, mais controlo e evidência NIS2 sem criar um projeto paralelo de compliance."
 } = Astro.props;
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 ---
 
 <!doctype html>
@@ -20,16 +22,17 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content={`${base}browser.png`} />
     <meta property="og:locale" content="pt_PT" />
     <meta property="og:site_name" content={title} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <link rel="icon" type="image/png" href="/Astro-NEW/browser.png" />
-    <link rel="apple-touch-icon" href="/Astro-NEW/browser.png" />
+    <link rel="icon" type="image/png" href={`${base}browser.png`} />
+    <link rel="apple-touch-icon" href={`${base}browser.png`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
   <body class="font-sans bg-[#0a1628] text-white">

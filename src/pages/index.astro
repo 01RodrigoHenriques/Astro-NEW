@@ -7,6 +7,8 @@ import MarketParallelSection from '../components/MarketParallelSection.astro';
 import HowItWorks from '../components/HowItWorks.astro';
 import LeadMagnetForm from '../components/LeadMagnetForm.astro';
 import WebGLBackground from '../components/WebGLBackground.astro';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 ---
 
 <BaseLayout title="Nexus Twin Industrial Suite" description="Nexus Twin — Mais produção, mais controlo e evidência NIS2 sem criar um projeto paralelo de compliance.">
@@ -24,7 +26,7 @@ import WebGLBackground from '../components/WebGLBackground.astro';
       <div class="mx-auto max-w-7xl rounded-xl border border-white/10 bg-black/20 px-6 py-3 backdrop-blur-md">
         <div class="flex items-center justify-between">
 <button onclick="scrollToSection('home')" class="cursor-pointer">
-            <img src="/favicon.png" alt="Nexus Twin" class="h-12 md:h-14 w-auto mix-blend-screen" />
+            <img src={`${base}favicon.png`} alt="Nexus Twin" class="h-12 md:h-14 w-auto mix-blend-screen" />
           </button>
           
           <div class="hidden items-center gap-8 md:flex">
@@ -67,7 +69,7 @@ import WebGLBackground from '../components/WebGLBackground.astro';
         <div class="mx-auto max-w-4xl">
           <div class="text-center">
             <div class="flex justify-center mb-8">
-              <img src="/favicon.png" alt="Nexus Twin Industrial Suite" class="h-32 md:h-48 lg:h-64 w-auto max-w-[320px] md:max-w-[480px] lg:max-w-[640px] object-contain" />
+              <img src={`${base}favicon.png`} alt="Nexus Twin Industrial Suite" class="h-32 md:h-48 lg:h-64 w-auto max-w-[320px] md:max-w-[480px] lg:max-w-[640px] object-contain" />
             </div>
             <h1 class="mb-6 text-balance text-3xl md:text-4xl lg:text-5xl tracking-tight text-white md:text-5xl lg:text-6xl">
               Mais produção, mais controlo e evidência NIS2 sem criar um projeto paralelo de compliance.
@@ -121,16 +123,10 @@ import WebGLBackground from '../components/WebGLBackground.astro';
         <div class="relative z-10 mx-auto w-full max-w-4xl">
           <LeadMagnetForm />
         </div>
-        
+
         <!-- SECÇÃO 8: RODAPÉ -->
         <footer class="relative z-10 mt-16 pb-8">
           <div class="mx-auto max-w-4xl border-t border-white/10 pt-10">
-            <div class="mb-8">
-              <p class="text-base md:text-lg text-gray-500 font-open-sans-custom leading-relaxed text-center max-w-2xl mx-auto italic">
-                "A conformidade não deve ser uma camada por cima da fábrica. Deve ser uma consequência da forma como a fábrica está desenhada, monitorizada e documentada."
-              </p>
-            </div>
-            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               <div>
                 <h3 class="text-white font-semibold text-sm font-open-sans-custom mb-3">Nexus Twin</h3>
@@ -149,8 +145,8 @@ import WebGLBackground from '../components/WebGLBackground.astro';
               <div>
                 <h4 class="text-white font-semibold text-xs font-open-sans-custom mb-3 uppercase tracking-wider">Legal</h4>
                 <ul class="space-y-2">
-                  <li><a href="/Astro-NEW/politica-privacidade" class="text-xs text-gray-500 hover:text-white transition-colors font-open-sans-custom">Política de Privacidade</a></li>
-                  <li><a href="/Astro-NEW/termos-uso" class="text-xs text-gray-500 hover:text-white transition-colors font-open-sans-custom">Termos de Uso</a></li>
+                  <li><a href="/politica-privacidade" class="text-xs text-gray-500 hover:text-white transition-colors font-open-sans-custom">Política de Privacidade</a></li>
+                  <li><a href="/termos-uso" class="text-xs text-gray-500 hover:text-white transition-colors font-open-sans-custom">Termos de Uso</a></li>
                 </ul>
               </div>
             </div>
